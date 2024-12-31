@@ -49,7 +49,7 @@ export default function CompanyList() {
                 className="cursor-pointer"
                 src={companyLogo.find((logo) => logo.id === company.id)?.path || 'logo.svg'}
                 alt={company.name}
-                width={200} height={100}
+                width={100} height={80}
                 layout="responsive"
               />
             </div>

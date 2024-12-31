@@ -17,7 +17,7 @@ function Header() {
   return (
     <>
       <div className="w-full flex justify-between items-center px-10 py-5 bg-white shadow-md relative">
-        <Image onClick={()=>router.push(`/`)} src="/logo.svg" alt="Register Karo Logo" width={150} height={50} />
+        <Image onClick={()=>router.push(`/`)} src="/logo.svg" className='cursor-pointer' alt="Register Karo Logo" width={150} height={50} />
         
         {/* Navigation and Hamburger */}
         <div className="flex items-center gap-8">
