@@ -22,7 +22,7 @@ function Header() {
 
         <div className="flex items-center gap-8">
 
-          <nav className="hidden md:flex gap-8 font-extrabold">
+          <nav className="hidden items-center md:flex gap-8 font-extrabold">
             <a href="#" className="text-gray-800 font-medium">Home</a>
             <a href="#" className="text-gray-800 font-medium">Our Services</a>
             <a href="#" className="text-gray-800 font-medium">Blog</a>

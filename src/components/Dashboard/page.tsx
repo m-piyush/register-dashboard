@@ -8,9 +8,9 @@ function Dashboard() {
 
       <div className="flex flex-col lg:flex-row w-full justify-between items-start">
 
-        <div className="flex flex-col items-start gap-6 w-full lg:w-1/2">
+        <div className="flex flex-col items-start gap- w-full lg:w-1/2">
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-start gap-2">
             <Image src="/Dashboard-star.svg" alt="Star" width={20} height={20} />
             <p className="text-gray-600 font-medium">Google Rating</p>
             <div className="flex gap-1">
@@ -19,17 +19,19 @@ function Dashboard() {
               ))}
             </div>
           </div>
+          <>
+            <h1 className="text-4xl font-bold leading-tight text-gray-800">
+              Your trusted partner
+            </h1>
+            <h1 className="text-4xl font-bold leading-tight text-gray-800">
+              for compliance business needs
+            </h1>
+          </>
 
-          <h1 className="text-4xl font-bold leading-tight text-gray-800">
-            Your trusted partner 
-          </h1>
-          <h1 className="text-4xl font-bold leading-tight text-gray-800">
-            for compliance business needs
-          </h1>
 
           <Image src="/Dashboard-div.svg" alt="Divider" width={100} height={10} />
 
-          <p className="text-gray-600 text-lg w-full lg:w-3/4">
+          <p className="text-gray-600 text-lg w-full lg:w-3/4 pt-4">
             An online business compliance platform that helps entrepreneurs and other individuals with various registrations, tax filings, and other legal matters.
           </p>
           <div className="my-10">
