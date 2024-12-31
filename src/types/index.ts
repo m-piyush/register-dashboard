@@ -1,22 +1,27 @@
 export interface Company {
-    id: number;
-    name: string;
-    details?: string;
-  }
-  
-  export interface Director {
-    id: Key | null | undefined;
-    details: ReactNode;
-    company_name: ReactNode;
-    headquarters: ReactNode;
-    linkedin: string | undefined;
-    email: ReactNode;
-    phone: ReactNode;
-    name: string;
-  }
-  
-  export interface CompanyDetails {
-    company: Company;
-    directors: Director[];
-  }
-  
+  id: number;
+  name: string;
+  details?: string;
+}
+
+export interface Director {
+  id: string;
+  name: string;
+  details: string;
+  company_id: string;
+  company_name: string;
+  headquarters: string;
+  linkedin: string;
+  email: string;
+  phone: string;
+}
+
+export interface CompanyDetails {
+  company: Company;
+  directors: Director[];
+}
+
+export interface ApiResponse {
+  company: Company;
+  directors: Director[];
+};

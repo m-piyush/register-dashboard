@@ -10,7 +10,7 @@ function ContactPage() {
     return (
         <div>
             <div className="bg-[#1C4670] px-6 py-10 flex flex-col md:flex-row items-center md:items-start h-auto md:h-[400px] overflow-hidden">
-                {/* Text Section */}
+
                 <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left mb-6 md:mb-0">
                     <h1 className="text-2xl md:text-3xl font-bold text-white mb-4">
                         Manage Your Services by Your Mobile Phone
@@ -37,7 +37,6 @@ function ContactPage() {
                     </div>
                 </div>
 
-                {/* Image Section */}
                 <div className="w-full md:w-1/2 flex justify-center">
                     <Image
                         alt="Mobile App"

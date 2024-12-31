@@ -5,7 +5,6 @@ import { Company } from '../../types';
 import { useRouter } from 'next/navigation'; // Import useRouter
 import { companyLogo } from '@/data/Data';
 
-
 export default function CompanyList() {
   const [companies, setCompanies] = useState<Company[]>([]);
   const router = useRouter(); // Initialize useRouter
@@ -42,15 +41,16 @@ export default function CompanyList() {
           return (
             <div
               key={company.id}
-              className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 cursor-pointer "
+              className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 cursor-pointer"
               onClick={() => fetchCompanyDetails(company.id)}
             >
               <Image
                 className="cursor-pointer"
-                src={companyLogo.find((logo) => logo.id === company.id)?.path || 'logo.svg'}
+                src={companyLogo.find((logo) => logo.id === company.id)?.path || '/logo.svg'}
                 alt={company.name}
-                width={100} height={80}
-                layout="responsive"
+                width={200}
+                height={150}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
               />
             </div>
           );

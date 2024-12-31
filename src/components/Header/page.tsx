@@ -19,9 +19,9 @@ function Header() {
       <div className="w-full flex justify-between items-center px-10 py-5 bg-white shadow-md relative">
         <Image onClick={()=>router.push(`/`)} src="/logo.svg" className='cursor-pointer' alt="Register Karo Logo" width={150} height={50} />
         
-        {/* Navigation and Hamburger */}
+
         <div className="flex items-center gap-8">
-          {/* Desktop Navigation */}
+
           <nav className="hidden md:flex gap-8 font-extrabold">
             <a href="#" className="text-gray-800 font-medium">Home</a>
             <a href="#" className="text-gray-800 font-medium">Our Services</a>
@@ -31,17 +31,16 @@ function Header() {
             <CiSearch size={30} />
           </nav>
 
-          {/* Talk An Expert Button */}
+ 
           <Button className="bg-orange-500 hidden md:flex text-white px-6 py-2 rounded-md">Talk An Expert</Button>
         </div>
 
-        {/* Hamburger Button */}
+
         <button onClick={toggleMenu} className="md:hidden absolute top-5 right-5 bg-orange-500 p-2 rounded-md">
           <GiHamburgerMenu  size={30} color="white" />
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden flex flex-col items-center gap-4 bg-white shadow-md px-10 py-5">
           <a href="#" className="text-gray-800 font-medium">Home</a>

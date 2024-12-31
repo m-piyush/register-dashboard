@@ -42,13 +42,13 @@ function CarouselCard
                     <CarouselNext />
                 </Carousel>
             </div>
-            <div className="container mx-auto px-4 py-16"> {/* Container and padding */}
+            <div className="container mx-auto px-4 py-16"> 
                 <div className="text-center mb-8">
-                    <h1 className="text-l font-bold text-[#EB8D15]">FAQ</h1> {/* Title color and size */}
+                    <h1 className="text-l font-bold text-[#EB8D15]">FAQ</h1> 
                     <p className="text-gray-900 text-3xl">Frequent Ask Questions</p>
                 </div>
 
-                <div className="grid grid-cols-1 w-ful gap-4"> {/* Grid layout for FAQs */}
+                <div className="grid grid-cols-1 w-ful gap-4">
                     {CarouselData.map((item, index) => (
                         <Collapsible key={index} className='rounded-lg shadow p-2 bg-white'>
                             <CollapsibleTrigger className='flex w-full items-center '>

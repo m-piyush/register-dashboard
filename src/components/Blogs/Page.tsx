@@ -5,15 +5,15 @@ import { Button } from '../ui/button';
 import { FaArrowRight } from "react-icons/fa";
 function Blogs() {
     return (
-        <div className="container mx-auto px-4 py-16"> {/* Container with padding */}
+        <div className="container mx-auto px-4 py-16">
             <div className="flex flex-col justify-between items-center mb-8">
-                <h1 className="text-lg font-bold text-[#EB8D15]">EXPLORE OUR BLOGS</h1> {/* Title color and size */}
+                <h1 className="text-lg font-bold text-[#EB8D15]">EXPLORE OUR BLOGS</h1>
                 <p className="text-gray-600 text-3xl  ">Accelerate Digital Transformation</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                 {BlogData.map((item, index) => (
-                    <div key={index} className="bg-white rounded-lg shadow p-6"> {/* Card styling */}
+                    <div key={index} className="bg-white rounded-lg shadow p-6">
                         <div className="flex flex-col gap-4">
                             <Image
                                 src={item.icon}
@@ -40,9 +40,9 @@ function Blogs() {
                 ))}
             </div>
             <div className='w-full flex justify-center items-center my-5'>
-            <Button className='text-white bg-[#1C4670] flex justify-center items-center'>Show more blogs <FaArrowRight/> </Button>
+                <Button className='text-white bg-[#1C4670] flex justify-center items-center'>Show more blogs <FaArrowRight /> </Button>
             </div>
-            
+
         </div>
     );
 }

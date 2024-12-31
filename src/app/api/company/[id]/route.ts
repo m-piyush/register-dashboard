@@ -1,40 +1,13 @@
-import { NextResponse } from 'next/server';
-import pool from '@/lib/db';
+import { NextResponse,NextRequest } from 'next/server';
+import pool from '@/lib/db'; 
+import { Company, Director, ApiResponse } from "@/types/index";
 
-type Company = {
-  id: string;
-  name: string;
-  // Add other company fields
-};
-
-type Director = {
-  id: string;
-  name: string;
-  details: string;
-  company_id: string;
-  company_name: string;
-  headquarters: string;
-  linkedin: string;
-  email: string;
-  phone: string;
-};
-
-type ApiResponse = {
-  company: Company;
-  directors: Director[];
-};
-
-export async function GET(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
+export const GET = async (req: NextRequest, { params }:  { params:Promise<{ id: string }> }) => {
+  const { id } = await params; 
   try {
-    const { id } = params;
-
     // Fetch company details
     const companyResult = await pool.query<Company>('SELECT * FROM companies WHERE id = $1', [id]);
-    const directorsResult = await pool.query<Director>(
-      `
+    const directorsResult = await pool.query<Director>(`
       SELECT 
         id, 
         name, 
@@ -47,9 +20,7 @@ export async function GET(
         phone 
       FROM directors 
       WHERE company_id = $1
-      `,
-      [id]
-    );
+    `, [id]);
 
     if (companyResult.rows.length === 0) {
       return NextResponse.json({ error: 'Company not found' }, { status: 404 });
@@ -66,4 +37,4 @@ export async function GET(
     console.error('Database error:', error);
     return NextResponse.json({ error: 'Failed to fetch company details' }, { status: 500 });
   }
-}
+};

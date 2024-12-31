@@ -7,12 +7,11 @@ import Image from 'next/image';
 
 const CompanyDetailPage = () => {
   const [companyDetails, setCompanyDetails] = useState<CompanyDetails | null>(null);
-
   const params = useParams<{ id: string }>();
   const id = params.id;
 
   useEffect(() => {
-    if (!id) return; // Ensure id is available before making the API request
+    if (!id) return; 
 
     const fetchCompanyDetails = async () => {
       try {
@@ -37,7 +36,6 @@ const CompanyDetailPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-10">
-      {/* Company Info Section */}
       <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
         <div className='w-1/4 mx-auto mb-10'>
           <Image
@@ -53,7 +51,7 @@ const CompanyDetailPage = () => {
         <p className="text-lg text-gray-600">{companyDetails.company.details}</p>
       </div>
 
-      {/* Directors Section */}
+
       <div className="bg-white shadow-lg rounded-lg p-6">
         <h3 className="text-2xl font-semibold text-[#FFA229] mb-4">Directors</h3>
         <div className="space-y-6">

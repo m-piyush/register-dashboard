@@ -7,7 +7,7 @@ const conString = "postgresql://postgres_hp5e_user:kTdVPIQfMbx56hKQ1cMLLHjjIcrXD
 const pool = new Pool({
   connectionString: conString,
   ssl: {
-    rejectUnauthorized: false, // This is required for connecting to Render's managed databases
+    rejectUnauthorized: false, 
   },
 });
 
