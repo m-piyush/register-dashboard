@@ -1,5 +1,5 @@
 import CompanyList from "@/components/companyList/page";
-import Dashboard from "@/components/Dashboard/page";
+import 'antd/dist/reset.css';
 import Service from "@/components/Service/page";
 import About from "@/components/About/page";
 import WhyChooserRegister from "@/components/WhyChooseRegister/page";
@@ -12,7 +12,6 @@ import ContactPage from "@/components/ContactPage/Page";
 export default function Home() {
   return (
     <>
-      <Dashboard />
       <CompanyList />
       <Service />
       <About />

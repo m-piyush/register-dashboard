@@ -227,27 +227,33 @@ export const RegisterData = [
         Number: "78"
     },
     {
-        id:5,
+        id: 5,
         title: "Countries",
         Number: "78"
     },
     {
-        id:6,
+        id: 6,
         title: "PARTNERS",
         Number: "3287"
     },
     {
-        id:6,
+        id: 6,
         title: "Awards Received",
         Number: "41"
     },
 ]
 
 export const CustomerData = [
-    {id:1 ,logo:"custom-1.svg"},
-    {id:2 ,logo:"custom-2.svg"},
-    {id:3 ,logo:"custom-3.svg"},
-    {id:4 ,logo:"custom-4.svg"},
-    {id:5 ,logo:"custom-5.svg"},
-    {id:6 ,logo:"custom-6.svg"},
+    { id: 1, logo: "custom-1.svg" },
+    { id: 2, logo: "custom-2.svg" },
+    { id: 3, logo: "custom-3.svg" },
+    { id: 4, logo: "custom-4.svg" },
+    { id: 5, logo: "custom-5.svg" },
+    { id: 6, logo: "custom-6.svg" },
+]
+
+export const DirectorsAvartar = [
+    { id: 1, icon: 'Pichai.png' },
+    { id: 2, icon: 'Janet.png' },
+    { id: 3, icon: 'Joe.png' },
 ]

@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-
+import { MdOutlinePlayCircleFilled } from "react-icons/md";
 function Dashboard() {
   return (
     <div className="bg-[url('/Dashboard-background.svg')] bg-cover bg-left flex flex-col items-center pt-10 pl-10">
@@ -39,8 +39,8 @@ function Dashboard() {
           <div className="flex flex-col lg:flex-row gap-4">
             <Button className="bg-blue-600 text-white px-6 py-3 rounded-md">Talk An Expert</Button>
             <div className="flex items-center gap-2 cursor-pointer">
-              <Image src="/Dashboard-button.svg" alt="Play Button" width={30} height={30} />
-              <span className="text-blue-600 font-medium">See how it works</span>
+              <MdOutlinePlayCircleFilled size={40} color={'#FB432C'} />
+              <span className="text-black-900 font-medium">See how it works</span>
             </div>
           </div>
         </div>

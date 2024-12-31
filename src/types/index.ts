@@ -4,24 +4,18 @@ export interface Company {
   details?: string;
 }
 
-export interface Director {
+export interface CompaniesDirectors {
   id: string;
   name: string;
-  details: string;
   company_id: string;
   company_name: string;
-  headquarters: string;
-  linkedin: string;
-  email: string;
-  phone: string;
-}
-
-export interface CompanyDetails {
-  company: Company;
-  directors: Director[];
+  quotes: string;
+  rating: number;
+  mainheading: string;
+  subheading: string;
 }
 
 export interface ApiResponse {
   company: Company;
-  directors: Director[];
-};
+  CompaniesDirectors: CompaniesDirectors[];
+}

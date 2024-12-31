@@ -1,17 +1,18 @@
 'use client';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { CompanyDetails } from '@/types';
-import { companyLogo } from '@/data/Data';
-import Image from 'next/image';
-
+import { DirectorsAvartar } from '@/data/Data';
+import { FcGoogle } from "react-icons/fc";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Rate, Carousel } from 'antd';
+import { CompaniesDirectors,ApiResponse} from '@/types';
 const CompanyDetailPage = () => {
-  const [companyDetails, setCompanyDetails] = useState<CompanyDetails | null>(null);
-  const params = useParams<{ id: string }>();
-  const id = params.id;
+  const [companyDetails, setCompanyDetails] = useState<CompaniesDirectors[]>([]);
+  const params = useParams();
+  const id = params.id as string;
 
   useEffect(() => {
-    if (!id) return; 
+    if (!id) return;
 
     const fetchCompanyDetails = async () => {
       try {
@@ -19,58 +20,64 @@ const CompanyDetailPage = () => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status}`);
         }
-        const data = await response.json();
-        setCompanyDetails(data);
+        const data: ApiResponse = await response.json();
+        setCompanyDetails(data.CompaniesDirectors || []);
       } catch (error) {
-        console.log("error in fetching",error)
+        console.error("Error in fetching company details:", error);
       }
     };
 
     fetchCompanyDetails();
   }, [id]);
 
-
-  if (!companyDetails) {
+  if (!companyDetails.length) {
     return <div className="text-center text-gray-500 py-24">Loading...</div>;
   }
 
   return (
     <div className="container mx-auto px-4 py-10">
-      <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
-        <div className='w-1/4 mx-auto mb-10'>
-          <Image
-            className="cursor-pointer"
-            src={companyLogo.find((logo) => logo.id === companyDetails.company.id)?.path || 'logo.svg'}
-            alt={companyDetails.company.name}
-            width={50}
-            height={30}
-            layout="responsive"
-          />
-        </div>
-
-        <p className="text-lg text-gray-600">{companyDetails.company.details}</p>
-      </div>
-
-
-      <div className="bg-white shadow-lg rounded-lg p-6">
-        <h3 className="text-2xl font-semibold text-[#FFA229] mb-4">Directors</h3>
-        <div className="space-y-6">
-          {companyDetails.directors.map((director) => (
-            <div key={director.id} className="border-b pb-6">
-              <h4 className="text-xl font-bold text-gray-700">{director.name}</h4>
-              <p className="text-gray-600"><span className='text-[#FFA229]'>Details:</span> {director.details}</p>
-              <p className="text-gray-600"><span className='text-[#FFA229]'>Company Name:</span> : {director.company_name}</p>
-              <p className="text-gray-600"><span className='text-[#FFA229]'>Headquarters</span> : {director.headquarters}</p>
-              <p className="text-gray-600">
-                <span className='text-[#FFA229]'>LinkedIn: </span>
-                <a href={director.linkedin} className="underline">{director.linkedin}</a>
-              </p>
-              <p className="text-gray-600"><span className='text-[#FFA229]'>Email</span> : {director.email}</p>
-              <p className="text-gray-600"><span className='text-[#FFA229]'>Phone</span> : {director.phone}</p>
+      <Carousel speed={1000} autoplaySpeed={3000} dots autoplay>
+        {companyDetails.map((director, index) => (
+          <div key={index} className="p-6">
+            <h1 className="text-3xl capitalize font-bold text-orange-500 text-center">
+              {director.mainheading}
+            </h1>
+            <h2 className="text-5xl font-semibold text-gray-700 text-center mb-8">
+              {director.subheading}
+            </h2>
+            <blockquote className="text-gray-600 text-xl text-center mb-4 relative px-10">
+              <span className="absolute left-0 text-6xl text-gray-400 -top-3">“</span>
+              <p>{director.quotes}</p>
+              <span className="absolute right-0 text-6xl text-gray-400 -bottom-3">”</span>
+            </blockquote>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center gap-4">
+                <Avatar>
+                  <AvatarImage
+                    sizes="50px"
+                    src={`/${DirectorsAvartar.find((icon) => String(icon.id) === String(director.id))?.icon || 'logo.svg'}`}
+                    alt={director.name}
+                  />
+                </Avatar>
+                <div className="flex flex-col">
+                  <h4 className="text-lg font-bold text-gray-700">{director.name}</h4>
+                  <p className="text-sm text-gray-500">{director.company_name}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <FcGoogle className="border-solid border-2 border-gray-500 rounded-full" size={50} />
+                <div>
+                  <h4 className="text-l font-semibold text-gray-600">Google Reviews</h4>
+                  <div className="flex items-center gap-2">
+                    <Rate allowHalf disabled defaultValue={director.rating} />
+                    <span>{director.rating}</span>
+                  </div>
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        ))}
+      </Carousel>
     </div>
   );
 };

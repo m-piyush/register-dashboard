@@ -2,6 +2,7 @@ import "./globals.css";
 import Footer from "@/components/Footer/page";
 import Header from "@/components/Header/page";
 import Top from "@/components/Top/page";
+import Dashboard from "@/components/Dashboard/page";
 
 export default function RootLayout({
   children,
@@ -16,8 +17,10 @@ export default function RootLayout({
         <title>Registerkaro</title>
       </head>
       <body className="min-h-screen flex flex-col">
-        <Top/>
+        <Top />
         <Header />
+        <Dashboard />
+
         <main className="flex-grow">{children}</main>
         <Footer />
       </body>
