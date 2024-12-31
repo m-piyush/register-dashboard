@@ -5,7 +5,7 @@ export const companyLogo = [
     },
     {
         id: 2,
-        path: '/Ey.png'
+        path: '/EY-1.png'
     },
     {
         id: 3,
@@ -73,7 +73,7 @@ export const WhyChooseData = [
 
     },
     {
-        icon: 'shield-Person.svg',
+        icon: 'Why-Person.svg',
         title: 'Confidential & Safe',
         description: 'All your private information is safe with us.',
         bg: "#FBF1FB"

@@ -41,11 +41,11 @@ export default function CompanyList() {
           return (
             <div
               key={company.id}
-              className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 cursor-pointer"
               onClick={() => fetchCompanyDetails(company.id)}
+              className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5" // Adjust width based on screen size
             >
               <Image
-                className="cursor-pointer"
+                className="cursor-pointer mx-auto" // Center the image horizontally
                 src={companyLogo.find((logo) => logo.id === company.id)?.path || '/logo.svg'}
                 alt={company.name}
                 width={200}
@@ -56,6 +56,7 @@ export default function CompanyList() {
           );
         })}
       </div>
-    </div>
+
+    </div >
   );
 }
