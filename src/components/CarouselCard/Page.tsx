@@ -3,8 +3,7 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
+    CarouselNext
 } from "@/components/ui/carousel"
 import {
     Collapsible,

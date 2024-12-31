@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const CompanyDetailPage = () => {
   const [companyDetails, setCompanyDetails] = useState<CompanyDetails | null>(null);
-  const [error, setError] = useState<string | null>(null);
+
   const params = useParams<{ id: string }>();
   const id = params.id;
 
@@ -23,16 +23,13 @@ const CompanyDetailPage = () => {
         const data = await response.json();
         setCompanyDetails(data);
       } catch (error) {
-        setError('Failed to load company details');
+        console.log("error in fetching",error)
       }
     };
 
     fetchCompanyDetails();
   }, [id]);
 
-  if (error) {
-    return <div className="text-center text-red-600 font-semibold">{error}</div>;
-  }
 
   if (!companyDetails) {
     return <div className="text-center text-gray-500 py-24">Loading...</div>;
