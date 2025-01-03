@@ -16,6 +16,5 @@ export interface CompaniesDirectors {
 }
 
 export interface ApiResponse {
-  company: Company;
   CompaniesDirectors: CompaniesDirectors[];
 }

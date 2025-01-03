@@ -3,7 +3,10 @@ import { Pool } from 'pg';
 // Connection string for Render PostgreSQL database
 const conString = "postgresql://postgres_hp5e_user:kTdVPIQfMbx56hKQ1cMLLHjjIcrXDGQz@dpg-ctpnhe8gph6c73dftge0-a.oregon-postgres.render.com/postgres_hp5e";
 
-// Create a new pool instance
+// Connection string for local PostgreSQL database
+// const conString = "postgres://postgres:postgres@localhost/postgres";
+
+
 const pool = new Pool({
   connectionString: conString,
   ssl: {
@@ -11,7 +14,6 @@ const pool = new Pool({
   },
 });
 
-// Example function to test the database connection
 const testConnection = async () => {
   try {
     const client = await pool.connect();
@@ -22,7 +24,6 @@ const testConnection = async () => {
   }
 };
 
-// Call the test connection function
 testConnection();
 
 export default pool;

@@ -1,6 +1,6 @@
 import { NextResponse} from 'next/server';
 import pool from '@/lib/db';
-import {   CompaniesDirectors } from "@/types/index";
+import {   CompaniesDirectors, ApiResponse } from "@/types/index";
 
 export const GET = async () => {
 
@@ -18,8 +18,10 @@ export const GET = async () => {
       FROM companiesdirectors
     `,);
 
-    
-    return NextResponse.json(CompaniesDirectorsResult.rows);
+    const response: ApiResponse = {
+      CompaniesDirectors: CompaniesDirectorsResult.rows,
+    };
+    return NextResponse.json(response);
   } catch (error) {
     console.error('Database error:', error);
     return NextResponse.json({ error: 'Failed to fetch company details' }, { status: 500 });
