@@ -12,7 +12,7 @@ import ContactPage from "@/components/ContactPage/Page";
 export default function Home() {
   return (
     <>
-      <CompanyList />
+      {/* <CompanyList /> */}
       <Service />
       <About />
       <WhyChooserRegister />
